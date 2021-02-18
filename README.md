@@ -67,3 +67,28 @@ distributed except total international calls and number of
 customers service calls that are skewed on the left because
 most of their values are equal to zero.
 
+![Values distribution](https://github.com/Dimstella/customer-churn-prediction/blob/main/Graphs/valuesDistribution.png) </br>
+
+Next, we evaluated the contribution of every feature to the
+churn. For the international plan and voice mail plan we had to
+encode them to binary where ’yes’ equals to 1 and ’no’ equals
+to 0. Most customers that have international plan are churn customers.
+
+![](https://github.com/Dimstella/customer-churn-prediction/blob/main/Graphs/voicemail_international.png) </br>
+
+For total day minutes, total eve minutes, total night minutes,
+total day calls, total eve calls, and total night calls, we found
+max and min and the median value for every column and
+created three classes Mid, High, and Low. It is
+interesting to mention that only total day minutes have a
+significant impact on customers’ churn in contrast to other
+features which are not correlated at all with the churn.
+
+![](https://github.com/Dimstella/customer-churn-prediction/blob/main/Graphs/valuesClasses.png) </br>
+
+Finally, we counted churn and no churn customers in order
+to evaluate the balance of classes in our dataset. It is obvious 
+the imbalance between the classes.
+
+![](https://github.com/Dimstella/customer-churn-prediction/blob/main/Graphs/classesImbalance.png) </br>
+
