@@ -6,19 +6,8 @@ topics.
 ## Table of Contents
 * [1. Introduction](#1-introduction)
 * [2. Data](#2-data)
-* [3. Methodology](#3-methodology)
-  * [Preprocessing](#preprocessing)
-  * [Models](#models)
-  * [Metrics](#metrics)
-* [4. Experiments and results](#4-feature-engineering)
-  * [A. Random Forest](#random-forest)
-  * [B. AdaBoost](#adaboost)
-  * [C. Gradient Boost](#gradient-boost)
-  * [D. Decision Tree](#decision-tree)
-  * [E. Extra Trees](#extra-tree)
-  * [F. XGBoost](#xgboost)
-  * [G. Bagging](#bagging)
-* [Conclusions](#conclusions)
+* [3. Preprocessing](#3-preprocessing)
+* [4. Results](#4-feature-engineering)
 * [References](#references)
 
 ## 1. Introduction
@@ -92,3 +81,59 @@ the imbalance between the classes.
 
 ![](https://github.com/Dimstella/customer-churn-prediction/blob/main/Graphs/classesImbalance.png) </br>
 
+## 3. Preprocessing
+
+For the preprocessing, we used several methods in order to
+transform our dataset’s features in a preferred shape according
+to the analysis we contacted in the previous section.
+
+We first used the label encoder method from the sklearn
+library. With this method, we encoded the string values of
+international plan and voice mail plan from ’yes’ and ’no’
+to binary ’1’ and ’0’, respectively. The same procedure we
+followed for the churn column.
+
+By exploring the dataset features, we observe that we have
+separate columns for minutes, charge, and calls through the
+daytime. So, we combined nine columns into three by add up
+them. Our final columns were minutes, charges, and calls that
+accumulate the necessary information for our experiment. In
+addition, we divided the minutes’ column with 60 in order to
+create a new column that contains the time in hours.
+
+Sequentially, we transformed our string values, state, and
+area code into dummy variables. Dummy variables are independent
+variables that take the value of either 0 or 1 and the 
+usually used for categorical attributes. With this process, we
+created two separated dataframes that concatenated them to
+our main dataset.
+
+Subsequently, we chose to not drop high correlated features
+because we did not have any change to our results. We only
+drop features that already preprocessed. These features were
+area code and state with string values and minutes which
+replaced with hours column.
+
+Lastly, we faced a considerable imbalance of the churn
+column. To overcome this
+problem, we used an oversampling method called Random
+Oversampling.
+
+## 4. Results
+
+The best performance is represented by ExtraTrees classifier which has
+the best performance in classifying both churn and no churn
+customers.
+
+NOTE: Additional plots are provided in Graphs folder. </br> </br> 
+SUMMARAZATION RESULTS </br>
+| **Classifiers** | **Accuracy(%)**| **Precision(%)** | **Recall(%)** | **F-measure(%)** | **Specificity(%)** |
+| :--- | :--- | :--- | :--- | :--- |
+| **Random forest** | 98 | 99 | 96 | 97 | 99 |
+| **Adaboost** | 94 | 95 | 92 | 94 | 95 |
+| **Gradient Boosting** | 98 | 99 | 95 | 97 | 99 |
+| **ExtraTrees** | 98 | 98 | 98.0 | 98 | 98 |
+| **Decision Tree** | 96 | 96 | 96 | 96 | 95 |
+| **XGBoost** | 97 | 99 | 95 | 97 | 99 |
+
+![](https://github.com/Dimstella/customer-churn-prediction/blob/main/Graphs/classifiersComparison.png) </br>
