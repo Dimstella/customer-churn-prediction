@@ -128,7 +128,7 @@ customers.
 NOTE: Additional plots are provided in Graphs folder. </br> </br> 
 SUMMARAZATION RESULTS </br>
 | **Classifiers** | **Accuracy(%)**| **Precision(%)** | **Recall(%)** | **F-measure(%)** | **Specificity(%)** |
-| :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- | :--- |
 | **Random forest** | 98 | 99 | 96 | 97 | 99 |
 | **Adaboost** | 94 | 95 | 92 | 94 | 95 |
 | **Gradient Boosting** | 98 | 99 | 95 | 97 | 99 |
